@@ -72,5 +72,5 @@ void Hat::remove(Person* removePerson)
 		if (names[i] == removePerson)
 			names.erase(names.begin() + i);
 	}
-	delete removePerson;
+	//delete removePerson;
 }

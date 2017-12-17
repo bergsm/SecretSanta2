@@ -6,20 +6,20 @@
 
 #include <iostream>
 #include "Hat.hpp"
-#include "Person.hpp"
 #include "menu.hpp"
+#include "People.hpp"
 
 using namespace std;
 
 int main()
 {
-	//vector <Person*> people;
-
+	People people;
 	Hat hat;
-
 	string input;
-
 	bool quit = false;
+	Person* temp;
+
+	// TODO create menu for adding emails, exclusions, etc.
 
 	do switch(menu1())
 		{
@@ -28,8 +28,10 @@ int main()
 
 				cin >> input;
 
-				Person* temp = new Person(input);
+				temp = new Person(input);
+				people.add(temp);
 				hat.add(temp);
+				break;
 
 			case 2: // remove person
 				for (int i=0; i<hat.getSize(); i++)
@@ -44,63 +46,30 @@ int main()
 				{
 					if (input == hat.getNames()[i]->getName())
 						hat.remove(hat.getNames()[i]);
+						people.remove(hat.getNames()[i]);
 				}
+				break;
 
-			case 3: //assign and print secret santas
+			case 3: //assign and print secret santas //TODO fix assignment
 				for (int i=0; i<hat.getSize(); i++)
 				{
 					hat.assign(hat.getNames()[i]);
 				}
 
-				for (int i=0; i<hat.getSize(); i++)
+				for (int i=0; i<people.getSize(); i++)
 				{
-					cout << hat.getNames()[i]->getSS()->getName() << " is";
-					cout << " secret Santa for " << hat.getNames()[i]->getName();
+					cout << people.getNames()[i]->getSS()->getName() << " is";
+					cout << " secret Santa for " << people.getNames()[i]->getName();
 					cout << "!" << endl;
 				}
+				break;
 
 			case 4: // quit
 				quit = true;
+				break;
 
 		}
 	while (quit == false);
-
-	// TODO create menu for adding people, assigning SS's, editing info, etc.
-	/*while (quit == false)
-	{
-		cout << "Enter name of the person" << endl;
-
-		cin >> input;
-
-		if (input == "quit")
-			quit = true;
-		else
-		{
-
-			Person* temp = new Person(input);
-			hat.add(temp);
-		}
-	}
-
-	for (int i=0; i<hat.getSize(); i++)
-	{
-		cout << hat.getNames()[i]->getName() << endl;
-	}
-
-	cout << "Delete?" << endl;
-
-	cin >> input;
-
-	if(input == "y")
-	{
-		int hatSize = hat.getSize();
-		for (int i=0; i<hatSize; i++)
-		{
-			hat.remove(hat.draw());
-		}
-	}
-
-	cout << "Deleted" << endl;*/
 
 	return 0;
 }

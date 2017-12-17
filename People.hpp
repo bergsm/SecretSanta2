@@ -1,20 +1,18 @@
 /********************************************************************* 
 ** Author: Shawn Berg
-** Date: 12/9/17
+** Date: 12/17/17
 ** Description:
 *********************************************************************/
 
-#ifndef SECRETSANTA_HAT_HPP
-#define SECRETSANTA_HAT_HPP
+#ifndef SECRETSANTA_PEOPLE_HPP
+#define SECRETSANTA_PEOPLE_HPP
 
 #include <iostream>
 #include "Person.hpp"
-#include "Hat.hpp"
-#include "random.hpp"
 
 using namespace std;
 
-class Hat
+class People
 {
 private:
 	// Member Variables
@@ -25,24 +23,23 @@ public:
 
 
 	// Default Constructor
-	Hat();
+	People();
 
 	// Destructor
-	~Hat();
+	~People();
 
 	// Getters
 	int getSize();
 	vector <Person*> getNames();
 
+
 	// Setters
 
 
 	// Methods
-	void assign(Person*);
-	Person* draw();
 	void add(Person*);
 	void remove(Person*);
 
 };
 
-#endif //SECRETSANTA_HAT_HPP
+#endif //SECRETSANTA_PEOPLE_HPP
