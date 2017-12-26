@@ -35,24 +35,31 @@ int main()
 				break;
 
 			case 2: // remove person
-				for (int i=0; i<people->getSize(); i++)
-				{
-					cout << people->getNames()[i]->getName() << endl;
-				}
+				if (people->getSize() == 0)
+					cout << "No one to remove." << endl;
 
-				cout << endl << "Enter the name of the person to remove" << endl;
-				cin >> input;
-
-				for (int i=0; i<people->getSize(); i++)
+				else
 				{
-					if (input == people->getNames()[i]->getName())
+
+					for (int i = 0; i < people->getSize(); i++)
 					{
-						hat->remove(hat->getNames()[i]);
-						people->remove(people->getNames()[i]);
+						cout << people->getNames()[i]->getName() << endl;
+					}
+
+					cout << endl << "Enter the name of the person to remove"
+						 << endl;
+					cin >> input;
+
+					for (int i = 0; i < people->getSize(); i++)
+					{
+						if (input == people->getNames()[i]->getName())
+						{
+							hat->remove(hat->getNames()[i]);
+							people->remove(people->getNames()[i]);
+						}
 					}
 				}
 				break;
-
 			case 3: //assign and print secret santas
 				for (int i=0; i<people->getSize(); i++)
 				{
