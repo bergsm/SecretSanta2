@@ -52,13 +52,12 @@ int main()
 				}
 				break;
 
-			case 3: //assign and print secret santas //TODO fix assignment
+			case 3: //assign and print secret santas
 				for (int i=0; i<people->getSize(); i++)
 				{
 					people->assign(people->getNames()[i], hat);
 				}
 
-				// TODO Double assigning? Printing 3/4
 
 				for (int i=0; i<people->getSize(); i++)
 				{
