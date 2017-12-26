@@ -74,7 +74,8 @@ int main()
 					cout << " secret Santa for " << people->getNames()[i]->getName();
 					cout << "!" << endl;
 				}
-				return 0;
+				quit = true;
+				break;
 
 			case 4: // quit
 				quit = true;
@@ -82,6 +83,16 @@ int main()
 
 		}
 	while (quit == false);
+
+	if (people->getSize() > 0)
+	{
+		int peopleSize = people->getSize();
+		for (int i=0; i<peopleSize; i++)
+		{
+			people->remove(people->getNames()[0]);
+		}
+	}
+
 
 	return 0;
 }
