@@ -40,3 +40,27 @@ void People::remove(Person* removePerson)
 	}
 	delete removePerson;
 }
+
+void People::assign(Person* picker, Hat* hat)
+{
+	setSeed();
+	Person* SecretSanta;
+
+
+	int randomPick = randInt(0, hat->getSize()-1);
+	bool SSpicked = false;
+
+	while (SSpicked == false)
+	{
+		SecretSanta = hat->getNames()[randomPick];
+		if (SecretSanta->getName() != picker->getName())
+		{
+			picker->setSecretSanta(SecretSanta);
+			hat->remove(SecretSanta);
+			SSpicked = true;
+		}
+		else
+			randomPick = randInt(0, hat->getSize()-1);
+	}
+
+}

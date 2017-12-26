@@ -9,6 +9,8 @@
 
 #include <iostream>
 #include "Person.hpp"
+#include "random.hpp"
+#include "Hat.hpp"
 
 using namespace std;
 
@@ -39,6 +41,7 @@ public:
 	// Methods
 	void add(Person*);
 	void remove(Person*);
+	void assign(Person*, Hat*);
 
 };
 

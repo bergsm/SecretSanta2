@@ -13,8 +13,10 @@ using namespace std;
 
 int main()
 {
-	People people;
-	Hat hat;
+	People OGpeople;
+	People* people = &OGpeople;
+	Hat OGhat; //TODO initializing and using hat with a pointer
+	Hat* hat = &OGhat;
 	string input;
 	bool quit = false;
 	Person* temp;
@@ -29,40 +31,42 @@ int main()
 				cin >> input;
 
 				temp = new Person(input);
-				people.add(temp);
-				hat.add(temp);
+				people->add(temp);
+				hat->add(temp);
 				break;
 
 			case 2: // remove person
-				for (int i=0; i<hat.getSize(); i++)
+				for (int i=0; i<hat->getSize(); i++)
 				{
-					cout << hat.getNames()[i]->getName() << endl;
+					cout << hat->getNames()[i]->getName() << endl;
 				}
 
 				cout << endl << "Enter the name of the person to remove" << endl;
 				cin >> input;
 
-				for (int i=0; i<hat.getSize(); i++)
+				for (int i=0; i<hat->getSize(); i++)
 				{
-					if (input == hat.getNames()[i]->getName())
-						hat.remove(hat.getNames()[i]);
-						people.remove(hat.getNames()[i]);
+					if (input == hat->getNames()[i]->getName())
+						hat->remove(hat->getNames()[i]);
+						people->remove(hat->getNames()[i]);
 				}
 				break;
 
 			case 3: //assign and print secret santas //TODO fix assignment
-				for (int i=0; i<hat.getSize(); i++)
+				for (int i=0; i<people->getSize(); i++)
 				{
-					hat.assign(hat.getNames()[i]);
+					people->assign(people->getNames()[i], hat);
 				}
 
-				for (int i=0; i<people.getSize(); i++)
+				// TODO Double assigning? Printing 3/4
+
+				for (int i=0; i<people->getSize(); i++)
 				{
-					cout << people.getNames()[i]->getSS()->getName() << " is";
-					cout << " secret Santa for " << people.getNames()[i]->getName();
+					cout << people->getNames()[i]->getSS()->getName() << " is";
+					cout << " secret Santa for " << people->getNames()[i]->getName();
 					cout << "!" << endl;
 				}
-				break;
+				return 0;
 
 			case 4: // quit
 				quit = true;

@@ -12,6 +12,9 @@ using namespace std;
 Person::Person(string newName)
 {
 	this->name = newName;
+	this->email = "";
+	this->secretSanta = NULL;
+	//this->exclusions = NULL;
 }
 
 Person::~Person()

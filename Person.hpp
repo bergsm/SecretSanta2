@@ -19,7 +19,7 @@ private:
 	// Member Variables
 	string name;
 	string email;
-	vector <Person> exclusions;
+	vector <Person*> exclusions;
 	Person* secretSanta;
 
 
