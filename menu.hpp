@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int menu1();  //function prototype
+int menu1();
 
 int menu2();
 

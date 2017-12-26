@@ -38,7 +38,7 @@ void People::remove(Person* removePerson)
 		if (names[i] == removePerson)
 			names.erase(names.begin() + i);
 	}
-	delete removePerson;
+	//delete removePerson;
 }
 
 void People::assign(Person* picker, Hat* hat)

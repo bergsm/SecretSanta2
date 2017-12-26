@@ -8,7 +8,6 @@
 #define SECRETSANTA_PEOPLE_HPP
 
 #include <iostream>
-#include "Person.hpp"
 #include "Hat.hpp"
 
 using namespace std;

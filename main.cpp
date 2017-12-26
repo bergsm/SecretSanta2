@@ -1,86 +1,79 @@
 /********************************************************************* 
 ** Author: Shawn Berg
-** Date: 12/4/17
+** Date: 12/9/17
 ** Description:
 *********************************************************************/
 
 #include <iostream>
-#include <string>
-#include <vector>
-#include "random.hpp"
+#include "menu.hpp"
+#include "People.hpp"
 
 using namespace std;
 
-struct Person
-{
-	string name;
-	string SSname;
-};
-
 int main()
 {
+	People OGpeople;
+	People* people = &OGpeople;
+	Hat OGhat;
+	Hat* hat = &OGhat;
+	string input;
+	bool quit = false;
+	Person* temp;
 
-	setSeed();
+	// TODO create menu for adding emails, exclusions, etc.
 
-	vector<Person> list;
-	vector<Person> hat;
-	Person SecretSanta;
-	bool SSpicked;
-
-	Person Michele;
-	Michele.name = "Michele";
-
-	Person Shawn;
-	Shawn.name = "Shawn";
-
-	Person Steve;
-	Steve.name = "Steve";
-
-	Person Mary;
-	Mary.name = "Mary";
-
-	Person Larry;
-	Larry.name = "Larry";
-
-	list.push_back(Michele);
-	list.push_back(Shawn);
-	list.push_back(Steve);
-	list.push_back(Mary);
-	list.push_back(Larry);
-
-	hat.push_back(Michele);
-	hat.push_back(Shawn);
-	hat.push_back(Steve);
-	hat.push_back(Mary);
-	hat.push_back(Larry);
-
-
-
-	for (int i=0; i<list.size(); i++)
-	{
-		SSpicked = false;
-		int randomPick = randInt(0, hat.size()-1);
-
-
-		while (SSpicked == false)
+	do switch(menu1())
 		{
-			SecretSanta = hat[randomPick];
-			if (SecretSanta.name != list[i].name)
-			{
-				list[i].SSname = SecretSanta.name;
-				hat.erase(hat.begin() + randomPick);
-				SSpicked = true;
-			}
-			else
-				randomPick = randInt(0, hat.size()-1);
+			case 1: // add person to drawing
+				cout << "Enter name of the person" << endl;
+
+				cin >> input;
+
+				temp = new Person(input);
+				people->add(temp);
+				hat->add(temp);
+				break;
+
+			case 2: // remove person
+				for (int i=0; i<people->getSize(); i++)
+				{
+					cout << people->getNames()[i]->getName() << endl;
+				}
+
+				cout << endl << "Enter the name of the person to remove" << endl;
+				cin >> input;
+
+				for (int i=0; i<people->getSize(); i++)
+				{
+					if (input == people->getNames()[i]->getName())
+					{
+						hat->remove(hat->getNames()[i]);
+						people->remove(people->getNames()[i]);
+					}
+				}
+				break;
+
+			case 3: //assign and print secret santas
+				for (int i=0; i<people->getSize(); i++)
+				{
+					people->assign(people->getNames()[i], hat);
+				}
+
+
+				for (int i=0; i<people->getSize(); i++)
+				{
+					cout << people->getNames()[i]->getSS()->getName() << " is";
+					cout << " secret Santa for " << people->getNames()[i]->getName();
+					cout << "!" << endl;
+				}
+				return 0;
+
+			case 4: // quit
+				quit = true;
+				break;
 
 		}
-	}
-
-	for (int i=0; i<list.size(); i++)
-	{
-		cout << list[i].SSname << " is secret Santa for " << list[i].name << endl;
-	}
+	while (quit == false);
 
 	return 0;
 }

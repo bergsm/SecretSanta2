@@ -17,7 +17,7 @@ using namespace std;
 
 void setSeed();
 
-int randInt(int low, int high); // Function prototype
+int randInt(int low, int high);
 
 double randDouble(double low, double high);
 
