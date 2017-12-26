@@ -1,7 +1,8 @@
 /********************************************************************* 
 ** Author: Shawn Berg
 ** Date: 12/9/17
-** Description:
+** Description: This code contains the variables of functions for each individual
+ * person in the drawing.
 *********************************************************************/
 
 #include <iostream>

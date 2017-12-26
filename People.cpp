@@ -1,7 +1,7 @@
 /********************************************************************* 
 ** Author: Shawn Berg
 ** Date: 12/17/17
-** Description:
+** Description: This class contains all of the people in the drawing
 *********************************************************************/
 
 #include <iostream>

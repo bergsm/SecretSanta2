@@ -1,7 +1,8 @@
 /********************************************************************* 
 ** Author: Shawn Berg
 ** Date: 12/9/17
-** Description:
+** Description: This code allows the user to create a list of people and assign
+ * them secret Santas!
 *********************************************************************/
 
 #include <iostream>

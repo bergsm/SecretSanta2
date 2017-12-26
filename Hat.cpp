@@ -1,7 +1,8 @@
 /********************************************************************* 
 ** Author: Shawn Berg
 ** Date: 12/9/17
-** Description:
+** Description: This code serves as the "hat" which people will draw names out
+ * of.
 *********************************************************************/
 
 #include <iostream>
