@@ -9,7 +9,6 @@
 
 #include <iostream>
 #include "Person.hpp"
-#include "random.hpp"
 #include "Hat.hpp"
 
 using namespace std;

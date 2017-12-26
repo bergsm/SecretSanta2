@@ -15,7 +15,7 @@ int main()
 {
 	People OGpeople;
 	People* people = &OGpeople;
-	Hat OGhat; //TODO initializing and using hat with a pointer
+	Hat OGhat;
 	Hat* hat = &OGhat;
 	string input;
 	bool quit = false;
